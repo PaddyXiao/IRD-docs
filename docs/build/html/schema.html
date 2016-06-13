@@ -56,7 +56,7 @@
 <h2>数据库模式<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><p>IRD主要存储了项目、样本、测序结果、样本表型、以及样本与比对参考基因的关系。实体关系图如下：</p>
-<img alt="https://github.com/PaddyXiao/IRD-docs/blob/master/schema/IRD.png?raw=true" src="https://github.com/PaddyXiao/IRD-docs/blob/master/schema/IRD.png?raw=true" />
+<img alt="https://github.com/PaddyXiao/IRD-docs/blob/master/schema/IRD.png" src="https://github.com/PaddyXiao/IRD-docs/blob/master/schema/IRD.png" />
 </div></blockquote>
 </div>
 <div class="section" id="id3">
@@ -65,16 +65,19 @@
 <li><p class="first">sample（包含样本信息、项目信息、测序信息、表型信息）</p>
 <blockquote>
 <div><p>形式如下：</p>
-<dl class="docutils">
-<dt><a href="#id4"><span class="problematic" id="id5">`</span></a>- tables.sample</dt>
+<ul>
+<li><dl class="first docutils">
+<dt>tables.sample</dt>
 <dd><ul class="first last simple">
 <li>sample</li>
 <li>project</li>
 <li>sequence</li>
-<li>phenotype`</li>
+<li>phenotype</li>
 </ul>
 </dd>
 </dl>
+</li>
+</ul>
 <p>格式如下：</p>
 </div></blockquote>
 </li>
@@ -1644,13 +1647,416 @@
     <span class="p">}</span>
 </pre></div>
 </td></tr></table></div>
-<ul class="simple">
-<li>cdr3_aa</li>
-<li>cdr3_nt</li>
-<li>v</li>
-<li>j</li>
-<li>vj</li>
+<ul>
+<li><p class="first">cdr3_aa</p>
+<blockquote>
+<div><p>格式如下：</p>
+</div></blockquote>
+</li>
 </ul>
+<div class="highlight-javascript"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nx">sample_id</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+        <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;样本id&quot;</span><span class="p">,</span>
+        <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+    <span class="p">},</span>
+    <span class="nx">seq</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+        <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;CDR3氨基酸序列&quot;</span><span class="p">,</span>
+        <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+    <span class="p">},</span>
+    <span class="nx">num</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;int&quot;</span><span class="p">,</span>
+        <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;CDR3序列数目&quot;</span><span class="p">,</span>
+        <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+    <span class="p">},</span>
+    <span class="nx">freq</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;float&quot;</span><span class="p">,</span>
+        <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;CDR3丰度&quot;</span><span class="p">,</span>
+        <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;0-100&quot;</span><span class="p">,</span>
+        <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<ul>
+<li><p class="first">cdr3_nt</p>
+<blockquote>
+<div><p>格式如下：</p>
+</div></blockquote>
+</li>
+</ul>
+<div class="highlight-javascript"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nx">sample_id</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+        <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;样本id&quot;</span><span class="p">,</span>
+        <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+    <span class="p">},</span>
+    <span class="nx">seq</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+        <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;CDR3氨基酸序列&quot;</span><span class="p">,</span>
+        <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+    <span class="p">},</span>
+    <span class="nx">num</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;int&quot;</span><span class="p">,</span>
+        <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;CDR3序列数目&quot;</span><span class="p">,</span>
+        <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+    <span class="p">},</span>
+    <span class="nx">freq</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;float&quot;</span><span class="p">,</span>
+        <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;CDR3丰度&quot;</span><span class="p">,</span>
+        <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;0-100&quot;</span><span class="p">,</span>
+        <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<ul>
+<li><p class="first">v</p>
+<blockquote>
+<div><p>格式如下：</p>
+</div></blockquote>
+</li>
+</ul>
+<div class="highlight-javascript"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nx">sample_id</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+        <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;样本id&quot;</span><span class="p">,</span>
+        <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+    <span class="p">},</span>
+    <span class="nx">species</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+        <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;物种名称&quot;</span><span class="p">,</span>
+        <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+    <span class="p">},</span>
+    <span class="nx">name</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+        <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;V基因名称&quot;</span><span class="p">,</span>
+        <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+    <span class="p">},</span>
+    <span class="nx">seq</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+        <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;V参考基因碱基序列&quot;</span><span class="p">,</span>
+        <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+    <span class="p">},</span>
+    <span class="nx">num</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;int&quot;</span><span class="p">,</span>
+        <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;V基因使用具体数目&quot;</span><span class="p">,</span>
+        <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+    <span class="p">},</span>
+    <span class="nx">freq</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;float&quot;</span><span class="p">,</span>
+        <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;V基因使用频率&quot;</span><span class="p">,</span>
+        <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;0-100&quot;</span><span class="p">,</span>
+        <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<ul>
+<li><p class="first">j</p>
+<blockquote>
+<div><p>格式如下：</p>
+</div></blockquote>
+</li>
+</ul>
+<div class="highlight-javascript"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nx">sample_id</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+        <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;样本id&quot;</span><span class="p">,</span>
+        <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+    <span class="p">},</span>
+    <span class="nx">species</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+        <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;物种名称&quot;</span><span class="p">,</span>
+        <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+    <span class="p">},</span>
+    <span class="nx">name</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+        <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;J基因名称&quot;</span><span class="p">,</span>
+        <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+    <span class="p">},</span>
+    <span class="nx">seq</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+        <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;J参考基因碱基序列&quot;</span><span class="p">,</span>
+        <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+    <span class="p">},</span>
+    <span class="nx">num</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;int&quot;</span><span class="p">,</span>
+        <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;J基因使用具体数目&quot;</span><span class="p">,</span>
+        <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+    <span class="p">},</span>
+    <span class="nx">freq</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;float&quot;</span><span class="p">,</span>
+        <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;J基因使用频率&quot;</span><span class="p">,</span>
+        <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;0-100&quot;</span><span class="p">,</span>
+        <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<ul>
+<li><p class="first">vj</p>
+<blockquote>
+<div><p>格式如下：</p>
+</div></blockquote>
+</li>
+</ul>
+<div class="highlight-javascript"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nx">sample_id</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+        <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;样本id&quot;</span><span class="p">,</span>
+        <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+    <span class="p">},</span>
+    <span class="nx">name_v</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+        <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;V基因名称&quot;</span><span class="p">,</span>
+        <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+    <span class="p">},</span>
+    <span class="nx">name_j</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+        <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;J基因名称&quot;</span><span class="p">,</span>
+        <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+    <span class="p">},</span>
+    <span class="nx">num</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;int&quot;</span><span class="p">,</span>
+        <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;VJ基因使用具体数目&quot;</span><span class="p">,</span>
+        <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+    <span class="p">},</span>
+    <span class="nx">freq</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;float&quot;</span><span class="p">,</span>
+        <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;VJ基因使用频率&quot;</span><span class="p">,</span>
+        <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;0-100&quot;</span><span class="p">,</span>
+        <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
 </div>
 </div>
 
