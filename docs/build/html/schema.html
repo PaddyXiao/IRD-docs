@@ -64,6 +64,1571 @@
 <ul class="simple">
 <li>sample</li>
 </ul>
+<div class="highlight-json"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566
+567
+568
+569
+570
+571
+572
+573
+574
+575
+576
+577
+578
+579
+580
+581
+582
+583
+584
+585
+586
+587
+588
+589
+590
+591
+592
+593
+594
+595
+596
+597
+598
+599
+600
+601
+602
+603
+604
+605
+606
+607
+608
+609
+610
+611
+612
+613
+614
+615
+616
+617
+618
+619
+620
+621
+622
+623
+624
+625
+626
+627
+628
+629
+630
+631
+632
+633
+634
+635
+636
+637
+638
+639
+640
+641
+642
+643
+644
+645
+646
+647
+648
+649
+650
+651
+652
+653
+654
+655
+656
+657
+658
+659
+660
+661
+662
+663
+664
+665
+666
+667
+668
+669
+670
+671
+672
+673
+674
+675
+676
+677
+678
+679
+680
+681
+682
+683
+684
+685
+686
+687
+688
+689
+690
+691
+692
+693
+694
+695
+696
+697
+698
+699
+700
+701
+702
+703
+704
+705
+706
+707
+708
+709
+710
+711
+712
+713
+714
+715
+716
+717
+718
+719
+720
+721
+722
+723
+724
+725
+726
+727
+728
+729
+730
+731
+732
+733
+734
+735
+736
+737
+738
+739
+740
+741
+742
+743
+744
+745
+746
+747
+748
+749
+750
+751
+752
+753
+754
+755
+756
+757
+758
+759
+760
+761
+762
+763
+764
+765
+766
+767
+768
+769
+770
+771
+772
+773
+774
+775
+776
+777
+778
+779
+780
+781
+782</pre></div></td><td class="code"><div class="highlight"><pre><span></span>{
+    sample_id: {
+        type: &quot;string&quot;,
+        desc: &quot;样本编号&quot;,
+        allow: &quot;&quot;,
+        index: true,
+        level: &quot;D5&quot;
+    },
+    sample_name: {
+        type: &quot;string&quot;,
+        desc: &quot;样本名称&quot;,
+        allow: &quot;&quot;,
+        index: false,
+        level: &quot;D5&quot;
+    },
+    project: {
+        name: {
+            type: &quot;string&quot;,
+            desc: &quot;项目名称&quot;,
+            allow: &quot;&quot;,
+            index: false,
+            level: &quot;D5&quot;
+        },
+        sample_num: {
+            type: &quot;string&quot;,
+            desc: &quot;组成样本数&quot;,
+            allow: &quot;&quot;,
+            index: false,
+            level: &quot;D5&quot;
+        },
+        type: {
+            type: &quot;string&quot;,
+            desc: &quot;项目类型&quot;,
+            allow: [
+                &quot;TCR&quot;,
+                &quot;BCR&quot;
+            ],
+            index: false,
+            level: &quot;D5&quot;
+        },
+        desc: {
+            type: &quot;string&quot;,
+            desc: &quot;项目描述&quot;,
+            allow: &quot;&quot;,
+            index: false,
+            level: &quot;D5&quot;
+        }
+    },
+    sample_type: {
+        type: &quot;string&quot;,
+        desc: &quot;样本类型&quot;,
+        allow: [
+            &quot;PBMC&quot;,
+            &quot;whole_blood&quot;,
+            &quot;lymphoid_tissue&quot;,
+            &quot;non-lymphoid_tissue&quot;
+        ],
+        index: false,
+        level: &quot;D5&quot;
+    },
+    species: {
+        type: &quot;string&quot;,
+        desc: &quot;样本所属物种&quot;,
+        allow: &quot;&quot;,
+        index: false,
+        level: &quot;D5&quot;
+    },
+    seq_type: {
+        type: &quot;string&quot;,
+        desc: &quot;测序样本类型&quot;,
+        allow: [
+            &quot;DNA&quot;,
+            &quot;RNA&quot;
+        ],
+        index: false,
+        level: &quot;D5&quot;
+    },
+    locus: {
+        type: &quot;string&quot;,
+        desc: &quot;目标序列类型&quot;,
+        allow: [
+            &quot;TRCAD&quot;,
+            &quot;TRCG&quot;,
+            &quot;TCRB&quot;,
+            &quot;IGH&quot;,
+            &quot;IGL&quot;,
+            &quot;IGK&quot;
+        ],
+        index: false,
+        level: &quot;D5&quot;
+    },
+    method: {
+        type: &quot;string&quot;,
+        desc: &quot;分析方法&quot;,
+        allow: [
+            &quot;IMonitor&quot;
+        ],
+        index: false,
+        level: &quot;D5&quot;
+    },
+    method_para: {
+        type: &quot;string&quot;,
+        desc: &quot;流程方法的具体参数&quot;,
+        allow: &quot;&quot;,
+        index: false,
+        level: &quot;D3&quot;
+    },
+    primer_set: {
+        type: &quot;string&quot;,
+        desc: &quot;引物名称&quot;,
+        allow: &quot;&quot;,
+        index: false,
+        level: &quot;D5&quot;
+    },
+    time: {
+        type: &quot;date&quot;,
+        desc: &quot;取样时间&quot;,
+        allow: &quot;&quot;,
+        index: false,
+        level: &quot;D5&quot;
+    },
+    amount_ng: {
+        type: &quot;float&quot;,
+        desc: &quot;样本量（ng）&quot;,
+        allow: &quot;&quot;,
+        index: false,
+        level: &quot;D5&quot;
+    },
+    platforms: {
+        type: &quot;string&quot;,
+        desc: &quot;测序平台&quot;,
+        allow: [
+            &quot;Hiseq&quot;,
+            &quot;Proten&quot;,
+            &quot;Zebra&quot;,
+            &quot;Miseq&quot;
+        ],
+        index: false,
+        level: &quot;D5&quot;
+    },
+    in_frame_percentage: {
+        type: &quot;float&quot;,
+        desc: &quot;in frame数据百分比&quot;,
+        allow: &quot;0-100&quot;,
+        index: false,
+        level: &quot;D5&quot;
+    },
+    total_in_frame_reads: {
+        type: &quot;float&quot;,
+        desc: &quot;in frame reads数&quot;,
+        allow: &quot;&gt;0&quot;,
+        index: false,
+        level: &quot;D5&quot;
+    },
+    out_frame_percentage: {
+        type: &quot;float&quot;,
+        desc: &quot;out frame数据百分比&quot;,
+        allow: &quot;0-100&quot;,
+        index: false,
+        level: &quot;D5&quot;
+    },
+    total_out_frame_percentage: {
+        type: &quot;float&quot;,
+        desc: &quot;out frame reads数&quot;,
+        allow: &quot;&gt;0&quot;,
+        index: false,
+        level: &quot;D5&quot;
+    },
+    stop_codon_percentage: {
+        type: &quot;float&quot;,
+        desc: &quot;含有终止密码子数据百分比&quot;,
+        allow: &quot;0-100&quot;,
+        index: false,
+        level: &quot;D5&quot;
+    },
+    total_stop_reads: {
+        type: &quot;float&quot;,
+        desc: &quot;含有终止密码子reads数&quot;,
+        allow: &quot;&gt;0&quot;,
+        index: false,
+        level: &quot;D5&quot;
+    },
+    v_alignment: {
+        type: &quot;float&quot;,
+        desc: &quot;V基因比对率&quot;,
+        allow: &quot;0-100&quot;,
+        index: false,
+        level: &quot;D5&quot;
+    },
+    d_alignment: {
+        type: &quot;float&quot;,
+        desc: &quot;D基因比对率&quot;,
+        allow: &quot;0-100&quot;,
+        index: false,
+        level: &quot;D5&quot;
+    },
+    j_alignment: {
+        type: &quot;float&quot;,
+        desc: &quot;J基因比对率&quot;,
+        allow: &quot;0-100&quot;,
+        index: false,
+        level: &quot;D5&quot;
+    },
+    vj_alignment: {
+        type: &quot;float&quot;,
+        desc: &quot;VJ基因比对率&quot;,
+        allow: &quot;0-100&quot;,
+        index: false,
+        level: &quot;D5&quot;
+    },
+    cdr3_nt_productive_entropy: {
+        type: &quot;float&quot;,
+        desc: &quot;有效数据CDR3 NT的香农熵&quot;,
+        allow: &quot;0-30&quot;,
+        index: false,
+        level: &quot;D5&quot;
+    },
+    cdr3_aa_productive_entropy: {
+        type: &quot;float&quot;,
+        desc: &quot;有效数据CDR3 AA的香农熵&quot;,
+        allow: &quot;0-30&quot;,
+        index: false,
+        level: &quot;D5&quot;
+    },
+    seq_nt_uniq_number: {
+        type: &quot;float&quot;,
+        desc: &quot;碱基序列unique number&quot;,
+        allow: &quot;&gt;0&quot;,
+        index: false,
+        level: &quot;D5&quot;
+    },
+    seq_aa_uniq_number: {
+        type: &quot;float&quot;,
+        desc: &quot;氨基酸序列unique number&quot;,
+        allow: &quot;&gt;0&quot;,
+        index: false,
+        level: &quot;D5&quot;
+    },
+    cdr3_nt_uniq_number: {
+        type: &quot;string&quot;,
+        desc: &quot;CDR3 NT unique number&quot;,
+        allow: &quot;&gt;0&quot;,
+        index: false,
+        level: &quot;D5&quot;
+    },
+    cdr3_aa_uniq_number: {
+        type: &quot;float&quot;,
+        desc: &quot;CDR3 AA unique number&quot;,
+        allow: &quot;&gt;0&quot;,
+        index: false,
+        level: &quot;D5&quot;
+    },
+    sequence_result_status: {
+        type: &quot;string&quot;,
+        desc: &quot;数据录入时的状态&quot;,
+        allow: [
+            &quot;published&quot;,
+            &quot;unpublished&quot;
+        ],
+        index: false,
+        level: &quot;D5&quot;
+    },
+    upload_date: {
+        type: &quot;date&quot;,
+        desc: &quot;样本对应序列上传时间&quot;,
+        allow: &quot;&quot;,
+        index: false,
+        level: &quot;D5&quot;
+    },
+    related_articles: {
+        type: &quot;string&quot;,
+        desc: &quot;与样本相关的相关文献&quot;,
+        allow: &quot;&quot;,
+        index: false,
+        level: &quot;D5&quot;
+    },
+    sequence_result: [
+        {
+            frame_type: {
+                type: &quot;string&quot;,
+                desc: &quot;序列类型&quot;,
+                allow: [
+                    &quot;in-frame&quot;,
+                    &quot;out-frame&quot;
+                ],
+                index: false,
+                level: &quot;D5&quot;
+            },
+            v_ref: {
+                type: &quot;string&quot;,
+                desc: &quot;对比到的V基因&quot;,
+                allow: &quot;&quot;,
+                index: false,
+                level: &quot;D5&quot;
+            },
+            d_ref: {
+                type: &quot;string&quot;,
+                desc: &quot;对比到的D基因&quot;,
+                allow: &quot;&quot;,
+                index: false,
+                level: &quot;D5&quot;
+            },
+            j_ref: {
+                type: &quot;string&quot;,
+                desc: &quot;对比到的J基因&quot;,
+                allow: &quot;&quot;,
+                index: false,
+                level: &quot;D5&quot;
+            },
+            cdr3_start: {
+                type: &quot;int&quot;,
+                desc: &quot;CDR3起始位置&quot;,
+                allow: &quot;&quot;,
+                index: false,
+                level: &quot;D5&quot;
+            },
+            cdr3_end: {
+                type: &quot;int&quot;,
+                desc: &quot;CDR3终止位置&quot;,
+                allow: &quot;&quot;,
+                index: false,
+                level: &quot;D5&quot;
+            },
+            cdr3_nt: {
+                type: &quot;string&quot;,
+                desc: &quot;CDR3碱基序列&quot;,
+                allow: &quot;&quot;,
+                index: false,
+                level: &quot;D5&quot;
+            },
+            chr3_aa: {
+                type: &quot;string&quot;,
+                desc: &quot;CDR3氨基酸序列&quot;,
+                allow: &quot;&quot;,
+                index: false,
+                level: &quot;D5&quot;
+            },
+            3v_del: {
+                type: &quot;string&quot;,
+                desc: &quot;保存插入删除信息&quot;,
+                allow: &quot;&quot;,
+                index: false,
+                level: &quot;D5&quot;
+            },
+            5d_del: {
+                type: &quot;string&quot;,
+                desc: &quot;保存插入删除信息&quot;,
+                allow: &quot;&quot;,
+                index: false,
+                level: &quot;D5&quot;
+            },
+            3d_del: {
+                type: &quot;string&quot;,
+                desc: &quot;保存插入删除信息&quot;,
+                allow: &quot;&quot;,
+                index: false,
+                level: &quot;D5&quot;
+            },
+            5j_del: {
+                type: &quot;string&quot;,
+                desc: &quot;保存插入删除信息&quot;,
+                allow: &quot;&quot;,
+                index: false,
+                level: &quot;D5&quot;
+            },
+            vd_ins: {
+                type: &quot;string&quot;,
+                desc: &quot;保存插入删除信息&quot;,
+                allow: &quot;&quot;,
+                index: false,
+                level: &quot;D5&quot;
+            },
+            dj_ins: {
+                type: &quot;string&quot;,
+                desc: &quot;保存插入删除信息&quot;,
+                allow: &quot;&quot;,
+                index: false,
+                level: &quot;D5&quot;
+            },
+            vj_ins: {
+                type: &quot;string&quot;,
+                desc: &quot;保存插入删除信息&quot;,
+                allow: &quot;&quot;,
+                index: false,
+                level: &quot;D5&quot;
+            },
+            strand: {
+                type: &quot;string&quot;,
+                desc: &quot;序列的方向&quot;,
+                allow: &quot;&quot;,
+                index: false,
+                level: &quot;D5&quot;
+            },
+            sequence: {
+                type: &quot;string&quot;,
+                desc: &quot;碱基序列&quot;,
+                allow: &quot;&quot;,
+                index: false,
+                level: &quot;D5&quot;
+            },
+            amino_acid: {
+                type: &quot;string&quot;,
+                desc: &quot;氨基酸序列&quot;,
+                allow: &quot;&quot;,
+                index: false,
+                level: &quot;D5&quot;
+            },
+            v_comparison_info: {
+                type: &quot;string&quot;,
+                desc: &quot;V区比对信息&quot;,
+                allow: &quot;&quot;,
+                index: false,
+                level: &quot;D5&quot;
+            },
+            v_comparison_rate: {
+                type: &quot;float&quot;,
+                desc: &quot;V区比对率&quot;,
+                allow: &quot;&quot;,
+                index: false,
+                level: &quot;D5&quot;
+            },
+            v_comparison_length: {
+                type: &quot;int&quot;,
+                desc: &quot;V区比对长度&quot;,
+                allow: &quot;&quot;,
+                index: false,
+                level: &quot;D5&quot;
+            },
+            v_comparison_mis: {
+                type: &quot;int&quot;,
+                desc: &quot;V区比对mismatch数&quot;,
+                allow: &quot;&quot;,
+                index: false,
+                level: &quot;D5&quot;
+            },
+            v_comparison_start: {
+                type: &quot;int&quot;,
+                desc: &quot;V基因比对起始位置&quot;,
+                allow: &quot;&quot;,
+                index: false,
+                level: &quot;D5&quot;
+            },
+            v_comparison_end: {
+                type: &quot;int&quot;,
+                desc: &quot;V基因比对终止位置&quot;,
+                allow: &quot;&quot;,
+                index: false,
+                level: &quot;D5&quot;
+            },
+            seq_comp_V_start: {
+                type: &quot;int&quot;,
+                desc: &quot;序列比对到ref起始位置&quot;,
+                allow: &quot;&quot;,
+                index: false,
+                level: &quot;D5&quot;
+            },
+            seq_comp_V_end: {
+                type: &quot;int&quot;,
+                desc: &quot;序列比对到ref终止位置&quot;,
+                allow: &quot;&quot;,
+                index: false,
+                level: &quot;D5&quot;
+            },
+            v_comp_p: {
+                type: &quot;float&quot;,
+                desc: &quot;检验值&quot;,
+                allow: &quot;&quot;,
+                index: false,
+                level: &quot;D5&quot;
+            },
+            v_comp_grade: {
+                type: &quot;float&quot;,
+                desc: &quot;评分&quot;,
+                allow: &quot;&quot;,
+                index: false,
+                level: &quot;D5&quot;
+            },
+            d_comparison_info: {
+                type: &quot;string&quot;,
+                desc: &quot;D区比对信息&quot;,
+                allow: &quot;&quot;,
+                index: false,
+                level: &quot;D5&quot;
+            },
+            d_comparison_rate: {
+                type: &quot;float&quot;,
+                desc: &quot;D区比对率&quot;,
+                allow: &quot;&quot;,
+                index: false,
+                level: &quot;D5&quot;
+            },
+            d_comparison_length: {
+                type: &quot;int&quot;,
+                desc: &quot;D区比对长度&quot;,
+                allow: &quot;&quot;,
+                index: false,
+                level: &quot;D5&quot;
+            },
+            d_comparison_mis: {
+                type: &quot;int&quot;,
+                desc: &quot;D区比对mismatch数&quot;,
+                allow: &quot;&quot;,
+                index: false,
+                level: &quot;D5&quot;
+            },
+            d_comparison_start: {
+                type: &quot;int&quot;,
+                desc: &quot;D基因比对起始位置&quot;,
+                allow: &quot;&quot;,
+                index: false,
+                level: &quot;D5&quot;
+            },
+            d_comparison_end: {
+                type: &quot;int&quot;,
+                desc: &quot;D基因比对终止位置&quot;,
+                allow: &quot;&quot;,
+                index: false,
+                level: &quot;D5&quot;
+            },
+            seq_comp_d_start: {
+                type: &quot;int&quot;,
+                desc: &quot;序列比对到ref起始位置&quot;,
+                allow: &quot;&quot;,
+                index: false,
+                level: &quot;D5&quot;
+            },
+            seq_comp_d_end: {
+                type: &quot;int&quot;,
+                desc: &quot;序列比对到ref终止位置&quot;,
+                allow: &quot;&quot;,
+                index: false,
+                level: &quot;D5&quot;
+            },
+            d_comp_p: {
+                type: &quot;float&quot;,
+                desc: &quot;检验值&quot;,
+                allow: &quot;&quot;,
+                index: false,
+                level: &quot;D5&quot;
+            },
+            d_comp_grade: {
+                type: &quot;float&quot;,
+                desc: &quot;评分&quot;,
+                allow: &quot;&quot;,
+                index: false,
+                level: &quot;D5&quot;
+            },
+            j_comparison_info: {
+                type: &quot;string&quot;,
+                desc: &quot;J区比对信息&quot;,
+                allow: &quot;&quot;,
+                index: false,
+                level: &quot;D5&quot;
+            },
+            j_comparison_rate: {
+                type: &quot;float&quot;,
+                desc: &quot;J区比对率&quot;,
+                allow: &quot;&quot;,
+                index: false,
+                level: &quot;D5&quot;
+            },
+            j_comparison_length: {
+                type: &quot;int&quot;,
+                desc: &quot;J区比对长度&quot;,
+                allow: &quot;&quot;,
+                index: false,
+                level: &quot;D5&quot;
+            },
+            j_comparison_mis: {
+                type: &quot;int&quot;,
+                desc: &quot;J区比对mismatch数&quot;,
+                allow: &quot;&quot;,
+                index: false,
+                level: &quot;D5&quot;
+            },
+            j_comparison_start: {
+                type: &quot;int&quot;,
+                desc: &quot;J基因比对起始位置&quot;,
+                allow: &quot;&quot;,
+                index: false,
+                level: &quot;D5&quot;
+            },
+            j_comparison_end: {
+                type: &quot;int&quot;,
+                desc: &quot;J基因比对终止位置&quot;,
+                allow: &quot;&quot;,
+                index: false,
+                level: &quot;D5&quot;
+            },
+            seq_comp_j_start: {
+                type: &quot;int&quot;,
+                desc: &quot;序列比对到ref起始位置&quot;,
+                allow: &quot;&quot;,
+                index: false,
+                level: &quot;D5&quot;
+            },
+            seq_comp_j_end: {
+                type: &quot;int&quot;,
+                desc: &quot;序列比对到ref终止位置&quot;,
+                allow: &quot;&quot;,
+                index: false,
+                level: &quot;D5&quot;
+            },
+            j_comp_p: {
+                type: &quot;float&quot;,
+                desc: &quot;检验值&quot;,
+                allow: &quot;&quot;,
+                index: false,
+                level: &quot;D5&quot;
+            },
+            j_comp_grade: {
+                type: &quot;float&quot;,
+                desc: &quot;评分&quot;,
+                allow: &quot;&quot;,
+                index: false,
+                level: &quot;D5&quot;
+            },
+            mutation: {
+                type: &quot;float&quot;,
+                desc: &quot;突变率&quot;,
+                allow: &quot;&quot;,
+                index: false,
+                level: &quot;D5&quot;
+            },
+            isotype: {
+                type: &quot;string&quot;,
+                desc: &quot;&quot;,
+                allow: [
+                    &quot;IGHA&quot;,
+                    &quot;IGHD&quot;,
+                    &quot;IGHE&quot;,
+                    &quot;IGHG&quot;,
+                    &quot;IGHM&quot;,
+                    &quot;unknown&quot;
+                ],
+                index: false,
+                level: &quot;D5&quot;
+            },
+
+        },
+
+    ],
+    disease: {
+        name: {
+            type: &quot;string&quot;,
+            desc: &quot;疾病名称&quot;,
+            allow: &quot;&quot;,
+            index: false,
+            level: &quot;D5&quot;
+        },
+        pathogenic_clone: {
+            type: &quot;string&quot;,
+            desc: &quot;疾病相关克隆&quot;,
+            allow: &quot;&quot;,
+            index: false,
+            level: &quot;D5&quot;
+        },
+        related_articles: {
+            type: &quot;string&quot;,
+            desc: &quot;相关报导文件&quot;,
+            allow: &quot;&quot;,
+            index: false,
+            level: &quot;D5&quot;
+        }
+    },
+    phenotype: {
+        inform: {
+            type: &quot;string&quot;,
+            desc: &quot;是否有知情同意书&quot;,
+            allow: &quot;&quot;,
+            index: false,
+            level: &quot;D5&quot;
+        },
+        date: {
+            type: &quot;date&quot;,
+            desc: &quot;采样时间&quot;,
+            allow: &quot;&quot;,
+            index: false,
+            level: &quot;D5&quot;
+        },
+        sample_type: {
+            type: &quot;string&quot;,
+            desc: &quot;样本类型&quot;,
+            allow: &quot;&quot;,
+            index: false,
+            level: &quot;D5&quot;
+        },
+        gender: {
+            type: &quot;string&quot;,
+            desc: &quot;性别&quot;,
+            allow: &quot;&quot;,
+            index: false,
+            level: &quot;D5&quot;
+        },
+        age: {
+            type: &quot;int&quot;,
+            desc: &quot;年龄&quot;,
+            allow: &quot;&quot;,
+            index: false,
+            level: &quot;D5&quot;
+        },
+        race: {
+            type: &quot;string&quot;desc: &quot;民族&quot;,
+            allow: &quot;&quot;,
+            index: false,
+            level: &quot;D5&quot;
+        },
+        height: {
+            type: &quot;float&quot;,
+            desc: &quot;身高&quot;,
+            allow: &quot;&quot;,
+            index: false,
+            level: &quot;D5&quot;
+        },
+        weight: {
+            type: &quot;float&quot;,
+            desc: &quot;体重&quot;,
+            allow: &quot;&quot;,
+            index: false,
+            level: &quot;D5&quot;
+        },
+        BMI: {
+            type: &quot;float&quot;,
+            desc: &quot;身高体重指数&quot;,
+            allow: &quot;&quot;,
+            index: false,
+            level: &quot;D5&quot;
+        },
+        waist: {
+            type: &quot;float&quot;,
+            desc: &quot;腰围&quot;,
+            allow: &quot;&quot;,
+            index: false,
+            level: &quot;D5&quot;
+        },
+        hip: {
+            type: &quot;float&quot;,
+            desc: &quot;臀围&quot;,
+            allow: &quot;&quot;,
+            index: false,
+            level: &quot;D5&quot;
+        },
+        whr: {
+            type: &quot;float&quot;,
+            desc: &quot;腰臀比&quot;,
+            allow: &quot;&quot;,
+            index: false,
+            level: &quot;D5&quot;
+        },
+        blood_pressure: {
+            type: &quot;float&quot;,
+            desc: &quot;血压&quot;,
+            allow: &quot;&quot;,
+            index: false,
+            level: &quot;D5&quot;
+        },
+        fast_glucose: {
+            type: &quot;float&quot;,
+            desc: &quot;空腹血糖&quot;,
+            allow: &quot;&quot;,
+            index: false,
+            level: &quot;D5&quot;
+        },
+        blood_lipids: {
+            type: &quot;float&quot;,
+            desc: &quot;血脂&quot;,
+            allow: &quot;&quot;,
+            index: false,
+            level: &quot;D5&quot;
+        },
+        t2d: {
+            type: &quot;bool&quot;,
+            desc: &quot;是否有二型糖尿病&quot;,
+            allow: [
+                true,
+                false
+            ],
+            index: false,
+            level: &quot;D5&quot;
+        }
+    }
+}
+</pre></div>
+</td></tr></table></div>
 </div>
 </div>
 

@@ -17,6 +17,7 @@
 
 .. code-block:: json
     :linenos:
+    
     {
         sample_id: {
             type: "string",
