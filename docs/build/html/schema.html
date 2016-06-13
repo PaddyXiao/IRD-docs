@@ -64,7 +64,7 @@
 <ul class="simple">
 <li>sample</li>
 </ul>
-<div class="highlight-json"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
+<div class="highlight-javascript"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
   2
   3
   4
@@ -845,788 +845,788 @@
 779
 780
 781
-782</pre></div></td><td class="code"><div class="highlight"><pre><span></span>{
-    sample_id: {
-        type: &quot;string&quot;,
-        desc: &quot;样本编号&quot;,
-        allow: &quot;&quot;,
-        index: true,
-        level: &quot;D5&quot;
-    },
-    sample_name: {
-        type: &quot;string&quot;,
-        desc: &quot;样本名称&quot;,
-        allow: &quot;&quot;,
-        index: false,
-        level: &quot;D5&quot;
-    },
-    project: {
-        name: {
-            type: &quot;string&quot;,
-            desc: &quot;项目名称&quot;,
-            allow: &quot;&quot;,
-            index: false,
-            level: &quot;D5&quot;
-        },
-        sample_num: {
-            type: &quot;string&quot;,
-            desc: &quot;组成样本数&quot;,
-            allow: &quot;&quot;,
-            index: false,
-            level: &quot;D5&quot;
-        },
-        type: {
-            type: &quot;string&quot;,
-            desc: &quot;项目类型&quot;,
-            allow: [
-                &quot;TCR&quot;,
-                &quot;BCR&quot;
-            ],
-            index: false,
-            level: &quot;D5&quot;
-        },
-        desc: {
-            type: &quot;string&quot;,
-            desc: &quot;项目描述&quot;,
-            allow: &quot;&quot;,
-            index: false,
-            level: &quot;D5&quot;
-        }
-    },
-    sample_type: {
-        type: &quot;string&quot;,
-        desc: &quot;样本类型&quot;,
-        allow: [
-            &quot;PBMC&quot;,
-            &quot;whole_blood&quot;,
-            &quot;lymphoid_tissue&quot;,
-            &quot;non-lymphoid_tissue&quot;
-        ],
-        index: false,
-        level: &quot;D5&quot;
-    },
-    species: {
-        type: &quot;string&quot;,
-        desc: &quot;样本所属物种&quot;,
-        allow: &quot;&quot;,
-        index: false,
-        level: &quot;D5&quot;
-    },
-    seq_type: {
-        type: &quot;string&quot;,
-        desc: &quot;测序样本类型&quot;,
-        allow: [
-            &quot;DNA&quot;,
-            &quot;RNA&quot;
-        ],
-        index: false,
-        level: &quot;D5&quot;
-    },
-    locus: {
-        type: &quot;string&quot;,
-        desc: &quot;目标序列类型&quot;,
-        allow: [
-            &quot;TRCAD&quot;,
-            &quot;TRCG&quot;,
-            &quot;TCRB&quot;,
-            &quot;IGH&quot;,
-            &quot;IGL&quot;,
-            &quot;IGK&quot;
-        ],
-        index: false,
-        level: &quot;D5&quot;
-    },
-    method: {
-        type: &quot;string&quot;,
-        desc: &quot;分析方法&quot;,
-        allow: [
-            &quot;IMonitor&quot;
-        ],
-        index: false,
-        level: &quot;D5&quot;
-    },
-    method_para: {
-        type: &quot;string&quot;,
-        desc: &quot;流程方法的具体参数&quot;,
-        allow: &quot;&quot;,
-        index: false,
-        level: &quot;D3&quot;
-    },
-    primer_set: {
-        type: &quot;string&quot;,
-        desc: &quot;引物名称&quot;,
-        allow: &quot;&quot;,
-        index: false,
-        level: &quot;D5&quot;
-    },
-    time: {
-        type: &quot;date&quot;,
-        desc: &quot;取样时间&quot;,
-        allow: &quot;&quot;,
-        index: false,
-        level: &quot;D5&quot;
-    },
-    amount_ng: {
-        type: &quot;float&quot;,
-        desc: &quot;样本量（ng）&quot;,
-        allow: &quot;&quot;,
-        index: false,
-        level: &quot;D5&quot;
-    },
-    platforms: {
-        type: &quot;string&quot;,
-        desc: &quot;测序平台&quot;,
-        allow: [
-            &quot;Hiseq&quot;,
-            &quot;Proten&quot;,
-            &quot;Zebra&quot;,
-            &quot;Miseq&quot;
-        ],
-        index: false,
-        level: &quot;D5&quot;
-    },
-    in_frame_percentage: {
-        type: &quot;float&quot;,
-        desc: &quot;in frame数据百分比&quot;,
-        allow: &quot;0-100&quot;,
-        index: false,
-        level: &quot;D5&quot;
-    },
-    total_in_frame_reads: {
-        type: &quot;float&quot;,
-        desc: &quot;in frame reads数&quot;,
-        allow: &quot;&gt;0&quot;,
-        index: false,
-        level: &quot;D5&quot;
-    },
-    out_frame_percentage: {
-        type: &quot;float&quot;,
-        desc: &quot;out frame数据百分比&quot;,
-        allow: &quot;0-100&quot;,
-        index: false,
-        level: &quot;D5&quot;
-    },
-    total_out_frame_percentage: {
-        type: &quot;float&quot;,
-        desc: &quot;out frame reads数&quot;,
-        allow: &quot;&gt;0&quot;,
-        index: false,
-        level: &quot;D5&quot;
-    },
-    stop_codon_percentage: {
-        type: &quot;float&quot;,
-        desc: &quot;含有终止密码子数据百分比&quot;,
-        allow: &quot;0-100&quot;,
-        index: false,
-        level: &quot;D5&quot;
-    },
-    total_stop_reads: {
-        type: &quot;float&quot;,
-        desc: &quot;含有终止密码子reads数&quot;,
-        allow: &quot;&gt;0&quot;,
-        index: false,
-        level: &quot;D5&quot;
-    },
-    v_alignment: {
-        type: &quot;float&quot;,
-        desc: &quot;V基因比对率&quot;,
-        allow: &quot;0-100&quot;,
-        index: false,
-        level: &quot;D5&quot;
-    },
-    d_alignment: {
-        type: &quot;float&quot;,
-        desc: &quot;D基因比对率&quot;,
-        allow: &quot;0-100&quot;,
-        index: false,
-        level: &quot;D5&quot;
-    },
-    j_alignment: {
-        type: &quot;float&quot;,
-        desc: &quot;J基因比对率&quot;,
-        allow: &quot;0-100&quot;,
-        index: false,
-        level: &quot;D5&quot;
-    },
-    vj_alignment: {
-        type: &quot;float&quot;,
-        desc: &quot;VJ基因比对率&quot;,
-        allow: &quot;0-100&quot;,
-        index: false,
-        level: &quot;D5&quot;
-    },
-    cdr3_nt_productive_entropy: {
-        type: &quot;float&quot;,
-        desc: &quot;有效数据CDR3 NT的香农熵&quot;,
-        allow: &quot;0-30&quot;,
-        index: false,
-        level: &quot;D5&quot;
-    },
-    cdr3_aa_productive_entropy: {
-        type: &quot;float&quot;,
-        desc: &quot;有效数据CDR3 AA的香农熵&quot;,
-        allow: &quot;0-30&quot;,
-        index: false,
-        level: &quot;D5&quot;
-    },
-    seq_nt_uniq_number: {
-        type: &quot;float&quot;,
-        desc: &quot;碱基序列unique number&quot;,
-        allow: &quot;&gt;0&quot;,
-        index: false,
-        level: &quot;D5&quot;
-    },
-    seq_aa_uniq_number: {
-        type: &quot;float&quot;,
-        desc: &quot;氨基酸序列unique number&quot;,
-        allow: &quot;&gt;0&quot;,
-        index: false,
-        level: &quot;D5&quot;
-    },
-    cdr3_nt_uniq_number: {
-        type: &quot;string&quot;,
-        desc: &quot;CDR3 NT unique number&quot;,
-        allow: &quot;&gt;0&quot;,
-        index: false,
-        level: &quot;D5&quot;
-    },
-    cdr3_aa_uniq_number: {
-        type: &quot;float&quot;,
-        desc: &quot;CDR3 AA unique number&quot;,
-        allow: &quot;&gt;0&quot;,
-        index: false,
-        level: &quot;D5&quot;
-    },
-    sequence_result_status: {
-        type: &quot;string&quot;,
-        desc: &quot;数据录入时的状态&quot;,
-        allow: [
-            &quot;published&quot;,
-            &quot;unpublished&quot;
-        ],
-        index: false,
-        level: &quot;D5&quot;
-    },
-    upload_date: {
-        type: &quot;date&quot;,
-        desc: &quot;样本对应序列上传时间&quot;,
-        allow: &quot;&quot;,
-        index: false,
-        level: &quot;D5&quot;
-    },
-    related_articles: {
-        type: &quot;string&quot;,
-        desc: &quot;与样本相关的相关文献&quot;,
-        allow: &quot;&quot;,
-        index: false,
-        level: &quot;D5&quot;
-    },
-    sequence_result: [
-        {
-            frame_type: {
-                type: &quot;string&quot;,
-                desc: &quot;序列类型&quot;,
-                allow: [
-                    &quot;in-frame&quot;,
-                    &quot;out-frame&quot;
-                ],
-                index: false,
-                level: &quot;D5&quot;
-            },
-            v_ref: {
-                type: &quot;string&quot;,
-                desc: &quot;对比到的V基因&quot;,
-                allow: &quot;&quot;,
-                index: false,
-                level: &quot;D5&quot;
-            },
-            d_ref: {
-                type: &quot;string&quot;,
-                desc: &quot;对比到的D基因&quot;,
-                allow: &quot;&quot;,
-                index: false,
-                level: &quot;D5&quot;
-            },
-            j_ref: {
-                type: &quot;string&quot;,
-                desc: &quot;对比到的J基因&quot;,
-                allow: &quot;&quot;,
-                index: false,
-                level: &quot;D5&quot;
-            },
-            cdr3_start: {
-                type: &quot;int&quot;,
-                desc: &quot;CDR3起始位置&quot;,
-                allow: &quot;&quot;,
-                index: false,
-                level: &quot;D5&quot;
-            },
-            cdr3_end: {
-                type: &quot;int&quot;,
-                desc: &quot;CDR3终止位置&quot;,
-                allow: &quot;&quot;,
-                index: false,
-                level: &quot;D5&quot;
-            },
-            cdr3_nt: {
-                type: &quot;string&quot;,
-                desc: &quot;CDR3碱基序列&quot;,
-                allow: &quot;&quot;,
-                index: false,
-                level: &quot;D5&quot;
-            },
-            chr3_aa: {
-                type: &quot;string&quot;,
-                desc: &quot;CDR3氨基酸序列&quot;,
-                allow: &quot;&quot;,
-                index: false,
-                level: &quot;D5&quot;
-            },
-            3v_del: {
-                type: &quot;string&quot;,
-                desc: &quot;保存插入删除信息&quot;,
-                allow: &quot;&quot;,
-                index: false,
-                level: &quot;D5&quot;
-            },
-            5d_del: {
-                type: &quot;string&quot;,
-                desc: &quot;保存插入删除信息&quot;,
-                allow: &quot;&quot;,
-                index: false,
-                level: &quot;D5&quot;
-            },
-            3d_del: {
-                type: &quot;string&quot;,
-                desc: &quot;保存插入删除信息&quot;,
-                allow: &quot;&quot;,
-                index: false,
-                level: &quot;D5&quot;
-            },
-            5j_del: {
-                type: &quot;string&quot;,
-                desc: &quot;保存插入删除信息&quot;,
-                allow: &quot;&quot;,
-                index: false,
-                level: &quot;D5&quot;
-            },
-            vd_ins: {
-                type: &quot;string&quot;,
-                desc: &quot;保存插入删除信息&quot;,
-                allow: &quot;&quot;,
-                index: false,
-                level: &quot;D5&quot;
-            },
-            dj_ins: {
-                type: &quot;string&quot;,
-                desc: &quot;保存插入删除信息&quot;,
-                allow: &quot;&quot;,
-                index: false,
-                level: &quot;D5&quot;
-            },
-            vj_ins: {
-                type: &quot;string&quot;,
-                desc: &quot;保存插入删除信息&quot;,
-                allow: &quot;&quot;,
-                index: false,
-                level: &quot;D5&quot;
-            },
-            strand: {
-                type: &quot;string&quot;,
-                desc: &quot;序列的方向&quot;,
-                allow: &quot;&quot;,
-                index: false,
-                level: &quot;D5&quot;
-            },
-            sequence: {
-                type: &quot;string&quot;,
-                desc: &quot;碱基序列&quot;,
-                allow: &quot;&quot;,
-                index: false,
-                level: &quot;D5&quot;
-            },
-            amino_acid: {
-                type: &quot;string&quot;,
-                desc: &quot;氨基酸序列&quot;,
-                allow: &quot;&quot;,
-                index: false,
-                level: &quot;D5&quot;
-            },
-            v_comparison_info: {
-                type: &quot;string&quot;,
-                desc: &quot;V区比对信息&quot;,
-                allow: &quot;&quot;,
-                index: false,
-                level: &quot;D5&quot;
-            },
-            v_comparison_rate: {
-                type: &quot;float&quot;,
-                desc: &quot;V区比对率&quot;,
-                allow: &quot;&quot;,
-                index: false,
-                level: &quot;D5&quot;
-            },
-            v_comparison_length: {
-                type: &quot;int&quot;,
-                desc: &quot;V区比对长度&quot;,
-                allow: &quot;&quot;,
-                index: false,
-                level: &quot;D5&quot;
-            },
-            v_comparison_mis: {
-                type: &quot;int&quot;,
-                desc: &quot;V区比对mismatch数&quot;,
-                allow: &quot;&quot;,
-                index: false,
-                level: &quot;D5&quot;
-            },
-            v_comparison_start: {
-                type: &quot;int&quot;,
-                desc: &quot;V基因比对起始位置&quot;,
-                allow: &quot;&quot;,
-                index: false,
-                level: &quot;D5&quot;
-            },
-            v_comparison_end: {
-                type: &quot;int&quot;,
-                desc: &quot;V基因比对终止位置&quot;,
-                allow: &quot;&quot;,
-                index: false,
-                level: &quot;D5&quot;
-            },
-            seq_comp_V_start: {
-                type: &quot;int&quot;,
-                desc: &quot;序列比对到ref起始位置&quot;,
-                allow: &quot;&quot;,
-                index: false,
-                level: &quot;D5&quot;
-            },
-            seq_comp_V_end: {
-                type: &quot;int&quot;,
-                desc: &quot;序列比对到ref终止位置&quot;,
-                allow: &quot;&quot;,
-                index: false,
-                level: &quot;D5&quot;
-            },
-            v_comp_p: {
-                type: &quot;float&quot;,
-                desc: &quot;检验值&quot;,
-                allow: &quot;&quot;,
-                index: false,
-                level: &quot;D5&quot;
-            },
-            v_comp_grade: {
-                type: &quot;float&quot;,
-                desc: &quot;评分&quot;,
-                allow: &quot;&quot;,
-                index: false,
-                level: &quot;D5&quot;
-            },
-            d_comparison_info: {
-                type: &quot;string&quot;,
-                desc: &quot;D区比对信息&quot;,
-                allow: &quot;&quot;,
-                index: false,
-                level: &quot;D5&quot;
-            },
-            d_comparison_rate: {
-                type: &quot;float&quot;,
-                desc: &quot;D区比对率&quot;,
-                allow: &quot;&quot;,
-                index: false,
-                level: &quot;D5&quot;
-            },
-            d_comparison_length: {
-                type: &quot;int&quot;,
-                desc: &quot;D区比对长度&quot;,
-                allow: &quot;&quot;,
-                index: false,
-                level: &quot;D5&quot;
-            },
-            d_comparison_mis: {
-                type: &quot;int&quot;,
-                desc: &quot;D区比对mismatch数&quot;,
-                allow: &quot;&quot;,
-                index: false,
-                level: &quot;D5&quot;
-            },
-            d_comparison_start: {
-                type: &quot;int&quot;,
-                desc: &quot;D基因比对起始位置&quot;,
-                allow: &quot;&quot;,
-                index: false,
-                level: &quot;D5&quot;
-            },
-            d_comparison_end: {
-                type: &quot;int&quot;,
-                desc: &quot;D基因比对终止位置&quot;,
-                allow: &quot;&quot;,
-                index: false,
-                level: &quot;D5&quot;
-            },
-            seq_comp_d_start: {
-                type: &quot;int&quot;,
-                desc: &quot;序列比对到ref起始位置&quot;,
-                allow: &quot;&quot;,
-                index: false,
-                level: &quot;D5&quot;
-            },
-            seq_comp_d_end: {
-                type: &quot;int&quot;,
-                desc: &quot;序列比对到ref终止位置&quot;,
-                allow: &quot;&quot;,
-                index: false,
-                level: &quot;D5&quot;
-            },
-            d_comp_p: {
-                type: &quot;float&quot;,
-                desc: &quot;检验值&quot;,
-                allow: &quot;&quot;,
-                index: false,
-                level: &quot;D5&quot;
-            },
-            d_comp_grade: {
-                type: &quot;float&quot;,
-                desc: &quot;评分&quot;,
-                allow: &quot;&quot;,
-                index: false,
-                level: &quot;D5&quot;
-            },
-            j_comparison_info: {
-                type: &quot;string&quot;,
-                desc: &quot;J区比对信息&quot;,
-                allow: &quot;&quot;,
-                index: false,
-                level: &quot;D5&quot;
-            },
-            j_comparison_rate: {
-                type: &quot;float&quot;,
-                desc: &quot;J区比对率&quot;,
-                allow: &quot;&quot;,
-                index: false,
-                level: &quot;D5&quot;
-            },
-            j_comparison_length: {
-                type: &quot;int&quot;,
-                desc: &quot;J区比对长度&quot;,
-                allow: &quot;&quot;,
-                index: false,
-                level: &quot;D5&quot;
-            },
-            j_comparison_mis: {
-                type: &quot;int&quot;,
-                desc: &quot;J区比对mismatch数&quot;,
-                allow: &quot;&quot;,
-                index: false,
-                level: &quot;D5&quot;
-            },
-            j_comparison_start: {
-                type: &quot;int&quot;,
-                desc: &quot;J基因比对起始位置&quot;,
-                allow: &quot;&quot;,
-                index: false,
-                level: &quot;D5&quot;
-            },
-            j_comparison_end: {
-                type: &quot;int&quot;,
-                desc: &quot;J基因比对终止位置&quot;,
-                allow: &quot;&quot;,
-                index: false,
-                level: &quot;D5&quot;
-            },
-            seq_comp_j_start: {
-                type: &quot;int&quot;,
-                desc: &quot;序列比对到ref起始位置&quot;,
-                allow: &quot;&quot;,
-                index: false,
-                level: &quot;D5&quot;
-            },
-            seq_comp_j_end: {
-                type: &quot;int&quot;,
-                desc: &quot;序列比对到ref终止位置&quot;,
-                allow: &quot;&quot;,
-                index: false,
-                level: &quot;D5&quot;
-            },
-            j_comp_p: {
-                type: &quot;float&quot;,
-                desc: &quot;检验值&quot;,
-                allow: &quot;&quot;,
-                index: false,
-                level: &quot;D5&quot;
-            },
-            j_comp_grade: {
-                type: &quot;float&quot;,
-                desc: &quot;评分&quot;,
-                allow: &quot;&quot;,
-                index: false,
-                level: &quot;D5&quot;
-            },
-            mutation: {
-                type: &quot;float&quot;,
-                desc: &quot;突变率&quot;,
-                allow: &quot;&quot;,
-                index: false,
-                level: &quot;D5&quot;
-            },
-            isotype: {
-                type: &quot;string&quot;,
-                desc: &quot;&quot;,
-                allow: [
-                    &quot;IGHA&quot;,
-                    &quot;IGHD&quot;,
-                    &quot;IGHE&quot;,
-                    &quot;IGHG&quot;,
-                    &quot;IGHM&quot;,
-                    &quot;unknown&quot;
-                ],
-                index: false,
-                level: &quot;D5&quot;
-            },
+782</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nx">sample_id</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+        <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;样本编号&quot;</span><span class="p">,</span>
+        <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nx">index</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+    <span class="p">},</span>
+    <span class="nx">sample_name</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+        <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;样本名称&quot;</span><span class="p">,</span>
+        <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+    <span class="p">},</span>
+    <span class="nx">project</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">name</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+            <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;项目名称&quot;</span><span class="p">,</span>
+            <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+        <span class="p">},</span>
+        <span class="nx">sample_num</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+            <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;组成样本数&quot;</span><span class="p">,</span>
+            <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+        <span class="p">},</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+            <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;项目类型&quot;</span><span class="p">,</span>
+            <span class="nx">allow</span><span class="o">:</span> <span class="p">[</span>
+                <span class="s2">&quot;TCR&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;BCR&quot;</span>
+            <span class="p">],</span>
+            <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+        <span class="p">},</span>
+        <span class="nx">desc</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+            <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;项目描述&quot;</span><span class="p">,</span>
+            <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nx">sample_type</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+        <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;样本类型&quot;</span><span class="p">,</span>
+        <span class="nx">allow</span><span class="o">:</span> <span class="p">[</span>
+            <span class="s2">&quot;PBMC&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;whole_blood&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;lymphoid_tissue&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;non-lymphoid_tissue&quot;</span>
+        <span class="p">],</span>
+        <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+    <span class="p">},</span>
+    <span class="nx">species</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+        <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;样本所属物种&quot;</span><span class="p">,</span>
+        <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+    <span class="p">},</span>
+    <span class="nx">seq_type</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+        <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;测序样本类型&quot;</span><span class="p">,</span>
+        <span class="nx">allow</span><span class="o">:</span> <span class="p">[</span>
+            <span class="s2">&quot;DNA&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;RNA&quot;</span>
+        <span class="p">],</span>
+        <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+    <span class="p">},</span>
+    <span class="nx">locus</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+        <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;目标序列类型&quot;</span><span class="p">,</span>
+        <span class="nx">allow</span><span class="o">:</span> <span class="p">[</span>
+            <span class="s2">&quot;TRCAD&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;TRCG&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;TCRB&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;IGH&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;IGL&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;IGK&quot;</span>
+        <span class="p">],</span>
+        <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+    <span class="p">},</span>
+    <span class="nx">method</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+        <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;分析方法&quot;</span><span class="p">,</span>
+        <span class="nx">allow</span><span class="o">:</span> <span class="p">[</span>
+            <span class="s2">&quot;IMonitor&quot;</span>
+        <span class="p">],</span>
+        <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+    <span class="p">},</span>
+    <span class="nx">method_para</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+        <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;流程方法的具体参数&quot;</span><span class="p">,</span>
+        <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D3&quot;</span>
+    <span class="p">},</span>
+    <span class="nx">primer_set</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+        <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;引物名称&quot;</span><span class="p">,</span>
+        <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+    <span class="p">},</span>
+    <span class="nx">time</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;date&quot;</span><span class="p">,</span>
+        <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;取样时间&quot;</span><span class="p">,</span>
+        <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+    <span class="p">},</span>
+    <span class="nx">amount_ng</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;float&quot;</span><span class="p">,</span>
+        <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;样本量（ng）&quot;</span><span class="p">,</span>
+        <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+    <span class="p">},</span>
+    <span class="nx">platforms</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+        <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;测序平台&quot;</span><span class="p">,</span>
+        <span class="nx">allow</span><span class="o">:</span> <span class="p">[</span>
+            <span class="s2">&quot;Hiseq&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Proten&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Zebra&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Miseq&quot;</span>
+        <span class="p">],</span>
+        <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+    <span class="p">},</span>
+    <span class="nx">in_frame_percentage</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;float&quot;</span><span class="p">,</span>
+        <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;in frame数据百分比&quot;</span><span class="p">,</span>
+        <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;0-100&quot;</span><span class="p">,</span>
+        <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+    <span class="p">},</span>
+    <span class="nx">total_in_frame_reads</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;float&quot;</span><span class="p">,</span>
+        <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;in frame reads数&quot;</span><span class="p">,</span>
+        <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&gt;0&quot;</span><span class="p">,</span>
+        <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+    <span class="p">},</span>
+    <span class="nx">out_frame_percentage</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;float&quot;</span><span class="p">,</span>
+        <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;out frame数据百分比&quot;</span><span class="p">,</span>
+        <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;0-100&quot;</span><span class="p">,</span>
+        <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+    <span class="p">},</span>
+    <span class="nx">total_out_frame_percentage</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;float&quot;</span><span class="p">,</span>
+        <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;out frame reads数&quot;</span><span class="p">,</span>
+        <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&gt;0&quot;</span><span class="p">,</span>
+        <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+    <span class="p">},</span>
+    <span class="nx">stop_codon_percentage</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;float&quot;</span><span class="p">,</span>
+        <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;含有终止密码子数据百分比&quot;</span><span class="p">,</span>
+        <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;0-100&quot;</span><span class="p">,</span>
+        <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+    <span class="p">},</span>
+    <span class="nx">total_stop_reads</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;float&quot;</span><span class="p">,</span>
+        <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;含有终止密码子reads数&quot;</span><span class="p">,</span>
+        <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&gt;0&quot;</span><span class="p">,</span>
+        <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+    <span class="p">},</span>
+    <span class="nx">v_alignment</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;float&quot;</span><span class="p">,</span>
+        <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;V基因比对率&quot;</span><span class="p">,</span>
+        <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;0-100&quot;</span><span class="p">,</span>
+        <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+    <span class="p">},</span>
+    <span class="nx">d_alignment</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;float&quot;</span><span class="p">,</span>
+        <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;D基因比对率&quot;</span><span class="p">,</span>
+        <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;0-100&quot;</span><span class="p">,</span>
+        <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+    <span class="p">},</span>
+    <span class="nx">j_alignment</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;float&quot;</span><span class="p">,</span>
+        <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;J基因比对率&quot;</span><span class="p">,</span>
+        <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;0-100&quot;</span><span class="p">,</span>
+        <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+    <span class="p">},</span>
+    <span class="nx">vj_alignment</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;float&quot;</span><span class="p">,</span>
+        <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;VJ基因比对率&quot;</span><span class="p">,</span>
+        <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;0-100&quot;</span><span class="p">,</span>
+        <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+    <span class="p">},</span>
+    <span class="nx">cdr3_nt_productive_entropy</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;float&quot;</span><span class="p">,</span>
+        <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;有效数据CDR3 NT的香农熵&quot;</span><span class="p">,</span>
+        <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;0-30&quot;</span><span class="p">,</span>
+        <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+    <span class="p">},</span>
+    <span class="nx">cdr3_aa_productive_entropy</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;float&quot;</span><span class="p">,</span>
+        <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;有效数据CDR3 AA的香农熵&quot;</span><span class="p">,</span>
+        <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;0-30&quot;</span><span class="p">,</span>
+        <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+    <span class="p">},</span>
+    <span class="nx">seq_nt_uniq_number</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;float&quot;</span><span class="p">,</span>
+        <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;碱基序列unique number&quot;</span><span class="p">,</span>
+        <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&gt;0&quot;</span><span class="p">,</span>
+        <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+    <span class="p">},</span>
+    <span class="nx">seq_aa_uniq_number</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;float&quot;</span><span class="p">,</span>
+        <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;氨基酸序列unique number&quot;</span><span class="p">,</span>
+        <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&gt;0&quot;</span><span class="p">,</span>
+        <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+    <span class="p">},</span>
+    <span class="nx">cdr3_nt_uniq_number</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+        <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;CDR3 NT unique number&quot;</span><span class="p">,</span>
+        <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&gt;0&quot;</span><span class="p">,</span>
+        <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+    <span class="p">},</span>
+    <span class="nx">cdr3_aa_uniq_number</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;float&quot;</span><span class="p">,</span>
+        <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;CDR3 AA unique number&quot;</span><span class="p">,</span>
+        <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&gt;0&quot;</span><span class="p">,</span>
+        <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+    <span class="p">},</span>
+    <span class="nx">sequence_result_status</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+        <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;数据录入时的状态&quot;</span><span class="p">,</span>
+        <span class="nx">allow</span><span class="o">:</span> <span class="p">[</span>
+            <span class="s2">&quot;published&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;unpublished&quot;</span>
+        <span class="p">],</span>
+        <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+    <span class="p">},</span>
+    <span class="nx">upload_date</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;date&quot;</span><span class="p">,</span>
+        <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;样本对应序列上传时间&quot;</span><span class="p">,</span>
+        <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+    <span class="p">},</span>
+    <span class="nx">related_articles</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+        <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;与样本相关的相关文献&quot;</span><span class="p">,</span>
+        <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+    <span class="p">},</span>
+    <span class="nx">sequence_result</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nx">frame_type</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+                <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;序列类型&quot;</span><span class="p">,</span>
+                <span class="nx">allow</span><span class="o">:</span> <span class="p">[</span>
+                    <span class="s2">&quot;in-frame&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;out-frame&quot;</span>
+                <span class="p">],</span>
+                <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+            <span class="p">},</span>
+            <span class="nx">v_ref</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+                <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;对比到的V基因&quot;</span><span class="p">,</span>
+                <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+            <span class="p">},</span>
+            <span class="nx">d_ref</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+                <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;对比到的D基因&quot;</span><span class="p">,</span>
+                <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+            <span class="p">},</span>
+            <span class="nx">j_ref</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+                <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;对比到的J基因&quot;</span><span class="p">,</span>
+                <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+            <span class="p">},</span>
+            <span class="nx">cdr3_start</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;int&quot;</span><span class="p">,</span>
+                <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;CDR3起始位置&quot;</span><span class="p">,</span>
+                <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+            <span class="p">},</span>
+            <span class="nx">cdr3_end</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;int&quot;</span><span class="p">,</span>
+                <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;CDR3终止位置&quot;</span><span class="p">,</span>
+                <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+            <span class="p">},</span>
+            <span class="nx">cdr3_nt</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+                <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;CDR3碱基序列&quot;</span><span class="p">,</span>
+                <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+            <span class="p">},</span>
+            <span class="nx">chr3_aa</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+                <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;CDR3氨基酸序列&quot;</span><span class="p">,</span>
+                <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+            <span class="p">},</span>
+            <span class="mi">3</span><span class="nx">v_del</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+                <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;保存插入删除信息&quot;</span><span class="p">,</span>
+                <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+            <span class="p">},</span>
+            <span class="mi">5</span><span class="nx">d_del</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+                <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;保存插入删除信息&quot;</span><span class="p">,</span>
+                <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+            <span class="p">},</span>
+            <span class="mi">3</span><span class="nx">d_del</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+                <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;保存插入删除信息&quot;</span><span class="p">,</span>
+                <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+            <span class="p">},</span>
+            <span class="mi">5</span><span class="nx">j_del</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+                <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;保存插入删除信息&quot;</span><span class="p">,</span>
+                <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+            <span class="p">},</span>
+            <span class="nx">vd_ins</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+                <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;保存插入删除信息&quot;</span><span class="p">,</span>
+                <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+            <span class="p">},</span>
+            <span class="nx">dj_ins</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+                <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;保存插入删除信息&quot;</span><span class="p">,</span>
+                <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+            <span class="p">},</span>
+            <span class="nx">vj_ins</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+                <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;保存插入删除信息&quot;</span><span class="p">,</span>
+                <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+            <span class="p">},</span>
+            <span class="nx">strand</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+                <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;序列的方向&quot;</span><span class="p">,</span>
+                <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+            <span class="p">},</span>
+            <span class="nx">sequence</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+                <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;碱基序列&quot;</span><span class="p">,</span>
+                <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+            <span class="p">},</span>
+            <span class="nx">amino_acid</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+                <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;氨基酸序列&quot;</span><span class="p">,</span>
+                <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+            <span class="p">},</span>
+            <span class="nx">v_comparison_info</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+                <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;V区比对信息&quot;</span><span class="p">,</span>
+                <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+            <span class="p">},</span>
+            <span class="nx">v_comparison_rate</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;float&quot;</span><span class="p">,</span>
+                <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;V区比对率&quot;</span><span class="p">,</span>
+                <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+            <span class="p">},</span>
+            <span class="nx">v_comparison_length</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;int&quot;</span><span class="p">,</span>
+                <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;V区比对长度&quot;</span><span class="p">,</span>
+                <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+            <span class="p">},</span>
+            <span class="nx">v_comparison_mis</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;int&quot;</span><span class="p">,</span>
+                <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;V区比对mismatch数&quot;</span><span class="p">,</span>
+                <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+            <span class="p">},</span>
+            <span class="nx">v_comparison_start</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;int&quot;</span><span class="p">,</span>
+                <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;V基因比对起始位置&quot;</span><span class="p">,</span>
+                <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+            <span class="p">},</span>
+            <span class="nx">v_comparison_end</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;int&quot;</span><span class="p">,</span>
+                <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;V基因比对终止位置&quot;</span><span class="p">,</span>
+                <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+            <span class="p">},</span>
+            <span class="nx">seq_comp_V_start</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;int&quot;</span><span class="p">,</span>
+                <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;序列比对到ref起始位置&quot;</span><span class="p">,</span>
+                <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+            <span class="p">},</span>
+            <span class="nx">seq_comp_V_end</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;int&quot;</span><span class="p">,</span>
+                <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;序列比对到ref终止位置&quot;</span><span class="p">,</span>
+                <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+            <span class="p">},</span>
+            <span class="nx">v_comp_p</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;float&quot;</span><span class="p">,</span>
+                <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;检验值&quot;</span><span class="p">,</span>
+                <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+            <span class="p">},</span>
+            <span class="nx">v_comp_grade</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;float&quot;</span><span class="p">,</span>
+                <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;评分&quot;</span><span class="p">,</span>
+                <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+            <span class="p">},</span>
+            <span class="nx">d_comparison_info</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+                <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;D区比对信息&quot;</span><span class="p">,</span>
+                <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+            <span class="p">},</span>
+            <span class="nx">d_comparison_rate</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;float&quot;</span><span class="p">,</span>
+                <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;D区比对率&quot;</span><span class="p">,</span>
+                <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+            <span class="p">},</span>
+            <span class="nx">d_comparison_length</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;int&quot;</span><span class="p">,</span>
+                <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;D区比对长度&quot;</span><span class="p">,</span>
+                <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+            <span class="p">},</span>
+            <span class="nx">d_comparison_mis</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;int&quot;</span><span class="p">,</span>
+                <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;D区比对mismatch数&quot;</span><span class="p">,</span>
+                <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+            <span class="p">},</span>
+            <span class="nx">d_comparison_start</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;int&quot;</span><span class="p">,</span>
+                <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;D基因比对起始位置&quot;</span><span class="p">,</span>
+                <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+            <span class="p">},</span>
+            <span class="nx">d_comparison_end</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;int&quot;</span><span class="p">,</span>
+                <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;D基因比对终止位置&quot;</span><span class="p">,</span>
+                <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+            <span class="p">},</span>
+            <span class="nx">seq_comp_d_start</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;int&quot;</span><span class="p">,</span>
+                <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;序列比对到ref起始位置&quot;</span><span class="p">,</span>
+                <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+            <span class="p">},</span>
+            <span class="nx">seq_comp_d_end</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;int&quot;</span><span class="p">,</span>
+                <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;序列比对到ref终止位置&quot;</span><span class="p">,</span>
+                <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+            <span class="p">},</span>
+            <span class="nx">d_comp_p</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;float&quot;</span><span class="p">,</span>
+                <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;检验值&quot;</span><span class="p">,</span>
+                <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+            <span class="p">},</span>
+            <span class="nx">d_comp_grade</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;float&quot;</span><span class="p">,</span>
+                <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;评分&quot;</span><span class="p">,</span>
+                <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+            <span class="p">},</span>
+            <span class="nx">j_comparison_info</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+                <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;J区比对信息&quot;</span><span class="p">,</span>
+                <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+            <span class="p">},</span>
+            <span class="nx">j_comparison_rate</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;float&quot;</span><span class="p">,</span>
+                <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;J区比对率&quot;</span><span class="p">,</span>
+                <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+            <span class="p">},</span>
+            <span class="nx">j_comparison_length</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;int&quot;</span><span class="p">,</span>
+                <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;J区比对长度&quot;</span><span class="p">,</span>
+                <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+            <span class="p">},</span>
+            <span class="nx">j_comparison_mis</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;int&quot;</span><span class="p">,</span>
+                <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;J区比对mismatch数&quot;</span><span class="p">,</span>
+                <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+            <span class="p">},</span>
+            <span class="nx">j_comparison_start</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;int&quot;</span><span class="p">,</span>
+                <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;J基因比对起始位置&quot;</span><span class="p">,</span>
+                <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+            <span class="p">},</span>
+            <span class="nx">j_comparison_end</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;int&quot;</span><span class="p">,</span>
+                <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;J基因比对终止位置&quot;</span><span class="p">,</span>
+                <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+            <span class="p">},</span>
+            <span class="nx">seq_comp_j_start</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;int&quot;</span><span class="p">,</span>
+                <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;序列比对到ref起始位置&quot;</span><span class="p">,</span>
+                <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+            <span class="p">},</span>
+            <span class="nx">seq_comp_j_end</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;int&quot;</span><span class="p">,</span>
+                <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;序列比对到ref终止位置&quot;</span><span class="p">,</span>
+                <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+            <span class="p">},</span>
+            <span class="nx">j_comp_p</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;float&quot;</span><span class="p">,</span>
+                <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;检验值&quot;</span><span class="p">,</span>
+                <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+            <span class="p">},</span>
+            <span class="nx">j_comp_grade</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;float&quot;</span><span class="p">,</span>
+                <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;评分&quot;</span><span class="p">,</span>
+                <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+            <span class="p">},</span>
+            <span class="nx">mutation</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;float&quot;</span><span class="p">,</span>
+                <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;突变率&quot;</span><span class="p">,</span>
+                <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+            <span class="p">},</span>
+            <span class="nx">isotype</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+                <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nx">allow</span><span class="o">:</span> <span class="p">[</span>
+                    <span class="s2">&quot;IGHA&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;IGHD&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;IGHE&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;IGHG&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;IGHM&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;unknown&quot;</span>
+                <span class="p">],</span>
+                <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+            <span class="p">},</span>
 
-        },
+        <span class="p">},</span>
 
-    ],
-    disease: {
-        name: {
-            type: &quot;string&quot;,
-            desc: &quot;疾病名称&quot;,
-            allow: &quot;&quot;,
-            index: false,
-            level: &quot;D5&quot;
-        },
-        pathogenic_clone: {
-            type: &quot;string&quot;,
-            desc: &quot;疾病相关克隆&quot;,
-            allow: &quot;&quot;,
-            index: false,
-            level: &quot;D5&quot;
-        },
-        related_articles: {
-            type: &quot;string&quot;,
-            desc: &quot;相关报导文件&quot;,
-            allow: &quot;&quot;,
-            index: false,
-            level: &quot;D5&quot;
-        }
-    },
-    phenotype: {
-        inform: {
-            type: &quot;string&quot;,
-            desc: &quot;是否有知情同意书&quot;,
-            allow: &quot;&quot;,
-            index: false,
-            level: &quot;D5&quot;
-        },
-        date: {
-            type: &quot;date&quot;,
-            desc: &quot;采样时间&quot;,
-            allow: &quot;&quot;,
-            index: false,
-            level: &quot;D5&quot;
-        },
-        sample_type: {
-            type: &quot;string&quot;,
-            desc: &quot;样本类型&quot;,
-            allow: &quot;&quot;,
-            index: false,
-            level: &quot;D5&quot;
-        },
-        gender: {
-            type: &quot;string&quot;,
-            desc: &quot;性别&quot;,
-            allow: &quot;&quot;,
-            index: false,
-            level: &quot;D5&quot;
-        },
-        age: {
-            type: &quot;int&quot;,
-            desc: &quot;年龄&quot;,
-            allow: &quot;&quot;,
-            index: false,
-            level: &quot;D5&quot;
-        },
-        race: {
-            type: &quot;string&quot;desc: &quot;民族&quot;,
-            allow: &quot;&quot;,
-            index: false,
-            level: &quot;D5&quot;
-        },
-        height: {
-            type: &quot;float&quot;,
-            desc: &quot;身高&quot;,
-            allow: &quot;&quot;,
-            index: false,
-            level: &quot;D5&quot;
-        },
-        weight: {
-            type: &quot;float&quot;,
-            desc: &quot;体重&quot;,
-            allow: &quot;&quot;,
-            index: false,
-            level: &quot;D5&quot;
-        },
-        BMI: {
-            type: &quot;float&quot;,
-            desc: &quot;身高体重指数&quot;,
-            allow: &quot;&quot;,
-            index: false,
-            level: &quot;D5&quot;
-        },
-        waist: {
-            type: &quot;float&quot;,
-            desc: &quot;腰围&quot;,
-            allow: &quot;&quot;,
-            index: false,
-            level: &quot;D5&quot;
-        },
-        hip: {
-            type: &quot;float&quot;,
-            desc: &quot;臀围&quot;,
-            allow: &quot;&quot;,
-            index: false,
-            level: &quot;D5&quot;
-        },
-        whr: {
-            type: &quot;float&quot;,
-            desc: &quot;腰臀比&quot;,
-            allow: &quot;&quot;,
-            index: false,
-            level: &quot;D5&quot;
-        },
-        blood_pressure: {
-            type: &quot;float&quot;,
-            desc: &quot;血压&quot;,
-            allow: &quot;&quot;,
-            index: false,
-            level: &quot;D5&quot;
-        },
-        fast_glucose: {
-            type: &quot;float&quot;,
-            desc: &quot;空腹血糖&quot;,
-            allow: &quot;&quot;,
-            index: false,
-            level: &quot;D5&quot;
-        },
-        blood_lipids: {
-            type: &quot;float&quot;,
-            desc: &quot;血脂&quot;,
-            allow: &quot;&quot;,
-            index: false,
-            level: &quot;D5&quot;
-        },
-        t2d: {
-            type: &quot;bool&quot;,
-            desc: &quot;是否有二型糖尿病&quot;,
-            allow: [
-                true,
-                false
-            ],
-            index: false,
-            level: &quot;D5&quot;
-        }
-    }
-}
+    <span class="p">],</span>
+    <span class="nx">disease</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">name</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+            <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;疾病名称&quot;</span><span class="p">,</span>
+            <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+        <span class="p">},</span>
+        <span class="nx">pathogenic_clone</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+            <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;疾病相关克隆&quot;</span><span class="p">,</span>
+            <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+        <span class="p">},</span>
+        <span class="nx">related_articles</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+            <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;相关报导文件&quot;</span><span class="p">,</span>
+            <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nx">phenotype</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">inform</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+            <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;是否有知情同意书&quot;</span><span class="p">,</span>
+            <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+        <span class="p">},</span>
+        <span class="nx">date</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;date&quot;</span><span class="p">,</span>
+            <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;采样时间&quot;</span><span class="p">,</span>
+            <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+        <span class="p">},</span>
+        <span class="nx">sample_type</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+            <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;样本类型&quot;</span><span class="p">,</span>
+            <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+        <span class="p">},</span>
+        <span class="nx">gender</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+            <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;性别&quot;</span><span class="p">,</span>
+            <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+        <span class="p">},</span>
+        <span class="nx">age</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;int&quot;</span><span class="p">,</span>
+            <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;年龄&quot;</span><span class="p">,</span>
+            <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+        <span class="p">},</span>
+        <span class="nx">race</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;民族&quot;</span><span class="p">,</span>
+            <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+        <span class="p">},</span>
+        <span class="nx">height</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;float&quot;</span><span class="p">,</span>
+            <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;身高&quot;</span><span class="p">,</span>
+            <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+        <span class="p">},</span>
+        <span class="nx">weight</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;float&quot;</span><span class="p">,</span>
+            <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;体重&quot;</span><span class="p">,</span>
+            <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+        <span class="p">},</span>
+        <span class="nx">BMI</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;float&quot;</span><span class="p">,</span>
+            <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;身高体重指数&quot;</span><span class="p">,</span>
+            <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+        <span class="p">},</span>
+        <span class="nx">waist</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;float&quot;</span><span class="p">,</span>
+            <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;腰围&quot;</span><span class="p">,</span>
+            <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+        <span class="p">},</span>
+        <span class="nx">hip</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;float&quot;</span><span class="p">,</span>
+            <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;臀围&quot;</span><span class="p">,</span>
+            <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+        <span class="p">},</span>
+        <span class="nx">whr</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;float&quot;</span><span class="p">,</span>
+            <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;腰臀比&quot;</span><span class="p">,</span>
+            <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+        <span class="p">},</span>
+        <span class="nx">blood_pressure</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;float&quot;</span><span class="p">,</span>
+            <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;血压&quot;</span><span class="p">,</span>
+            <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+        <span class="p">},</span>
+        <span class="nx">fast_glucose</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;float&quot;</span><span class="p">,</span>
+            <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;空腹血糖&quot;</span><span class="p">,</span>
+            <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+        <span class="p">},</span>
+        <span class="nx">blood_lipids</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;float&quot;</span><span class="p">,</span>
+            <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;血脂&quot;</span><span class="p">,</span>
+            <span class="nx">allow</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+        <span class="p">},</span>
+        <span class="nx">t2d</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;bool&quot;</span><span class="p">,</span>
+            <span class="nx">desc</span><span class="o">:</span> <span class="s2">&quot;是否有二型糖尿病&quot;</span><span class="p">,</span>
+            <span class="nx">allow</span><span class="o">:</span> <span class="p">[</span>
+                <span class="kc">true</span><span class="p">,</span>
+                <span class="kc">false</span>
+            <span class="p">],</span>
+            <span class="nx">index</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="nx">level</span><span class="o">:</span> <span class="s2">&quot;D5&quot;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </td></tr></table></div>
 </div>

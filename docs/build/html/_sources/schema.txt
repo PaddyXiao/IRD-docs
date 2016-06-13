@@ -15,7 +15,7 @@
 
 - sample
 
-.. code-block:: json
+.. code-block:: javascript
     :linenos:
     
     {
