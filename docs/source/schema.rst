@@ -44,7 +44,8 @@
     
 .. literalinclude:: cdr3_nt.js
     :language: javascript
-    :linenos:    
+    :linenos:
+    
 - v
 
     格式如下：
