@@ -4,9 +4,9 @@
 
 数据库模式
 ----------------
-    IRD主要存储了样本表型、样本基因型以及样本与样本之间的关系信息。实体关系图如下：
+    IRD主要存储了项目、样本、测序结果、样本表型、以及样本与比对参考基因的关系。实体关系图如下：
     
-    .. image:: https://github.com/PaddyXiao/HVBase/blob/master/docs/build/html/_static/HVBase.schema.zh_CN.png?raw=true
+    .. image:: https://github.com/PaddyXiao/IRD-docs/blob/master/schema/IRD.png?raw=true
     
     
 
